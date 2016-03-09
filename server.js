@@ -27,6 +27,9 @@ if (connection) {
 // console.log("here's what's in process.env: " + JSON.stringify(process.env));
 console.log("here's what JAWSDBURL is: " + process.env.JAWSDB_URL)
 
+app.get('/', function(req, req) {
+  res.send("Hello World");
+});
 
 
 app.listen(PORT, function() {
