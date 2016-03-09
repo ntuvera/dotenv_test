@@ -10,8 +10,8 @@ var app = express();
 
 // app.use(bodyParser.urlencoded({ extended: false }))
  
-// var connection = new Sequelize(process.env.JAWSDB_URL || 'dotenv_db', 'root');
-var connection = new Sequelize(process.env.JAWSDB_URL);
+var connection = new Sequelize(process.env.JAWSDB_URL || 'dotenv_db', 'root');
+// var connection = new Sequelize(process.env.JAWSDB_URL);
 // var Character = require('./models/character.js');
 
 var Character = connection.define('Character', {
