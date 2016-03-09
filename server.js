@@ -9,9 +9,15 @@ var PORT = process.env.PORT || 8080;
 var app = express();
 
 // app.use(bodyParser.urlencoded({ extended: false }))
- 
+// Option #1
 var connection = new Sequelize(process.env.JAWSDB_URL || 'dotenv_db', 'root');
+
+// Option #2
 // var connection = new Sequelize(process.env.JAWSDB_URL);
+
+// Option #3
+// require('dotenv').config()
+// var connection = new Sequelize(dotenv)
 // var Character = require('./models/character.js');
 
 var Character = connection.define('Character', {
@@ -52,5 +58,6 @@ app.get('/:name/:age', function(req, res) {
 
 
 app.listen(PORT, function() {
+  connection.sync();
 	console.log("Listening on: " + PORT);
 })
